@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="col-md-12">
+    <h1>List of products - HulkStore</h1>
+    <br><br>
+    <div class="row btn-group">
+      <button class="btn btn-success" (click)="addProduct()">Add Product</button>
+    </div>
+    <div class="row">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>SKU</th>
+            <th>Name</th>
+            <th>Stock</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td>{{product.sku}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.stock}}</td>
+            <td>
+              <button class="btn btn-primary" (click)="editProduct(product)"> Edit</button>
+              <button class="btn btn-success" (click)="sellProduct(product)"> Sell 1 Item</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div bsModal #editProductModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+</div>
